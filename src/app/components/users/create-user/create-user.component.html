@@ -1,0 +1,103 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card tab2-card">
+                <div class="card-header">
+                    <h5>{{pageTitle}}</h5>
+                </div>
+                <div class="card-body tab2-card">
+
+                    <form [formGroup]="userForm" (ngSubmit)="onRegistration(userForm)">
+
+                        <div class="form-group row">
+                            <div class="col-md-3">
+                                <label for="validationCustom0"><span>*</span>First Name</label></div>
+                            <div class="col-md-9">
+                                <input class="form-control" [ngClass]="{'is-invalid':f['firstName'].invalid && subimtted}"
+                                    type="text" formControlName="firstName">
+                                <div class="invalid-feedback" *ngIf="f['firstName'].invalid && subimtted">
+                                    <div *ngIf="f['firstName'].hasError('required')">{{validationMessage.firstName.required}}</div>
+                                    <div *ngIf="formErrors.firstName">{{formErrors.firstName}}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-3">
+                                <label for="validationCustom0"><span>*</span>Last Name</label></div>
+                            <div class="col-md-9">
+                                <input class="form-control" [ngClass]="{'is-invalid':f['lastName'].invalid && subimtted}"
+                                    type="text" formControlName="lastName">
+                                <div class="invalid-feedback" *ngIf="f['lastName'].invalid && subimtted">
+                                    <div *ngIf="f['lastName'].hasError('required')">{{validationMessage.lastName.required}}</div>
+                                    <div *ngIf="formErrors.lastName">{{formErrors.lastName}}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-3">
+                                <label for="validationCustom0"><span>*</span>Email</label></div>
+                            <div class="col-md-9">
+                                <input class="form-control" [ngClass]="{'is-invalid':f['email'].invalid && subimtted}"
+                                    type="text" formControlName="email">
+                                <div class="invalid-feedback" *ngIf="f['email'].invalid && subimtted">
+                                    <div *ngIf="f['email'].hasError('required')">{{validationMessage.email.required}}</div>
+                                    <div *ngIf="formErrors.email">{{formErrors.email}}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-3">
+                                <label for="validationCustom0"><span>*</span>User Type</label></div>
+                            <div class="col-md-9">
+                                <select class="form-control" [ngClass]="{'is-invalid':f['userType'].invalid && subimtted}"
+                                    formControlName="userType">
+                                    <option *ngFor="let data of objUserTypes" [value]="data.id">{{data.name}}</option>
+                                </select>
+                                <div class="invalid-feedback" *ngIf="f['userType'].invalid && subimtted">
+                                    <div *ngIf="f['userType'].hasError('required')">{{validationMessage.userType.required}}</div>
+                                    <div *ngIf="formErrors.userType">{{formErrors.userType}}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-3">
+                                <label for="validationCustom0"><span>*</span>Password</label></div>
+                            <div class="col-md-9">
+                                <input class="form-control" [ngClass]="{'is-invalid': f['password'].invalid && subimtted}"
+                                    type="text" formControlName="password">
+                                <div class="invalid-feedback" *ngIf="f['password'].invalid && subimtted">
+                                    <div *ngIf="f['password'].hasError('required')">{{validationMessage.password.required}}</div>
+                                    <div *ngIf="formErrors.password">{{formErrors.password}}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-3">
+                                <label for="validationCustom0"><span>*</span>Confirm Password</label></div>
+                            <div class="col-md-9">
+                                <input class="form-control" [ngClass]="{'is-invalid': f['confirmPassword'].invalid && subimtted}"
+                                    type="text" formControlName="confirmPassword">
+                                <div class="invalid-feedback" *ngIf="f['confirmPassword'].invalid && subimtted">
+                                    <div *ngIf="f['confirmPassword'].hasError('required')">{{validationMessage.confirmPassword.required}}</div>
+                                    <div *ngIf="formErrors.confirmPassword">{{formErrors.confirmPassword}}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pull-left">
+                            <button class="btn btn-primary" type="button" (click)="goToList()">Cancel</button>
+                        </div>
+                        <div class="pull-right">
+                            <button class="btn btn-primary" type="submit">{{buttonText}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,91 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="profile-details text-center">
+                        <img [src]="imagePath" alt="" class="img-fluid img-90 rounded-circle blur-up lazyloaded">
+                        <h5 class="f-w-600 mb-0">{{fullName}}</h5>
+                        <span>{{email}}</span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-8">
+            <div class="card tab2-card">
+                <div class="card-body">
+                    <ngb-tabset class="tab-coupon profile-tabs">
+                        <ngb-tab id="profile">
+                            <ng-template ngbTabTitle>
+                                <app-feather-icons [icon]="'user'"></app-feather-icons> Profile
+                            </ng-template>
+                            <ng-template ngbTabContent>
+                                <div class="tab-pane fade show active" id="top-profile" role="tabpanel" aria-labelledby="top-profile-tab">
+                                    <h5 class="f-w-600"> Profile</h5>
+                                    <div class="table-responsive profile-table">
+                                        <table class="table table-responsive">
+                                            <tbody>
+                                                <tr>
+                                                    <td>First Name:</td>
+                                                    <td>{{firstName}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Last Name:</td>
+                                                    <td>{{lastName}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Email:</td>
+                                                    <td>{{email}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </ngb-tab>
+
+                        <ngb-tab id="setting">
+                            <ng-template ngbTabTitle><app-feather-icons [icon]="'settings'"></app-feather-icons> Setting</ng-template>
+                            <ng-template ngbTabContent>
+                                
+                                <form [formGroup]="addForm">
+                                        <div class="form-group row">
+                                                <div class="col-md-3"><label for="validationCustom0"> Upload Image</label></div>
+                                                <div class="col-md-9">
+                                                    <input class="form-control" type="file" accept="image/*">                                                    
+                                                </div>
+                                            </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-md-3"><label for="validationCustom0"> First Name</label></div>
+                                        <div class="col-md-9">
+                                            <input class="form-control" type="text" formControlName="firstName">                                            
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-3"><label for="validationCustom0"> Last Name</label></div>
+                                        <div class="col-md-9">
+                                            <input class="form-control" type="text" formControlName="lastName">                                            
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-3"><label for="validationCustom0"> Email</label></div>
+                                        <div class="col-md-9">
+                                            <input class="form-control" type="text" formControlName="email">
+                                        </div>
+                                    </div>                                    
+                                    <div class="pull-right">
+                                        <button type="submit" class="btn btn-primary">Update</button>
+                                    </div>
+                                </form>
+
+                            </ng-template>
+                        </ngb-tab>
+
+                    </ngb-tabset>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
